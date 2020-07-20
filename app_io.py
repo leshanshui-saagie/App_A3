@@ -11,7 +11,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 application = Flask(__name__)
 
 model = 'Elda_DistilBert_5Langs'
-url ="https://research-workspace.a3.saagie.io/app/f0f4fc39-14ac-4215-b02a-4cfe87dac8e5"#os.environ["APP_URL"]
+url = os.environ["APP_URL"]
 
 def predict_text(data, model_name, serve_url=url, data_type='json'):
     """Inference with POST requests """
