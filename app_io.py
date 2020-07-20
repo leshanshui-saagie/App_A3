@@ -8,7 +8,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 model = 'Elda_DistilBert_5Langs'
 url ="https://research-workspace.a3.saagie.io/app/f0f4fc39-14ac-4215-b02a-4cfe87dac8e5"#os.environ["APP_URL"]
@@ -25,7 +25,7 @@ def predict_text(data, model_name, serve_url=url, data_type='json'):
     return response._content.decode('utf-8')
 
 
-@app.route("/",methods=['GET','POST'])
+@application.route("/",methods=['GET','POST'])
 def login():
     if request.method =='POST':
         data = request.form['input_text']
@@ -35,4 +35,4 @@ def login():
     return render_template('index.html', show_pred=0)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    application.run(debug=False, host='0.0.0.0', port=8051)
