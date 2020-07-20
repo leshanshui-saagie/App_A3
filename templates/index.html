@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div align="center">
+<h2>Input Value</h2>
+    {% if message %} {{message}} {% endif %}
+    <form method="POST">
+        <input type="text" name="input_text" placeholder="input_text">
+        <input type="submit" value="inference">
+        <input type="reset" value="reset">
+    </form>
+    {% if show_pred %}
+        {
+            <li>{{ pred }} </li>
+        } 
+    {% endif %}
+</div>
+
+</body>
+</html>
